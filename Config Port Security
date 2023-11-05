@@ -1,0 +1,11 @@
+---
+- name: Configure Port Security
+  hosts: network_switches
+  tasks:
+    - name: Enable Port Security
+      ios_interface:
+        name: "GigabitEthernet1/0/1"
+        switchport_port_security: enabled
+        switchport_port_security_maximum: 2
+        switchport_port_security_violation: restrict
+

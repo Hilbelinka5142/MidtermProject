@@ -1,0 +1,11 @@
+---
+- name: Configure ACLs
+  hosts: network_devices
+  tasks:
+    - name: Apply ACL
+      ios_acl:
+        name: "ACL-EXAMPLE"
+        lines:
+          - "permit ip any host 192.168.1.1"
+          - "deny ip any any"
+

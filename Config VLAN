@@ -1,0 +1,15 @@
+---
+- name: Configure VLANs
+  hosts: network_devices
+  tasks:
+    - name: Create VLAN
+      ios_vlan:
+        vlan_id: 10
+        name: VLAN10
+      when: "'VLAN10' not in result.stdout"
+    - name: Delete VLAN
+      ios_vlan:
+        vlan_id: 20
+        state: absent
+      when: "'VLAN20' in result.stdout"
+

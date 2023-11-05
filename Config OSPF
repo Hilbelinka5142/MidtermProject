@@ -1,0 +1,12 @@
+---
+- name: Configure OSPF
+  hosts: network_routers
+  tasks:
+    - name: Configure OSPF
+      ios_ospf:
+        process_id: 1
+        router_id: 1.1.1.1
+        network:
+          - { prefix: "192.168.1.0", wildcard: "0.0.0.255" }
+      area: 0
+

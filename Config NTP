@@ -1,0 +1,11 @@
+---
+- name: Set NTP Servers
+  hosts: network_devices
+  tasks:
+    - name: Set NTP Servers
+      ios_ntp:
+        source_interface: "Loopback0"
+        servers:
+          - "ntp.example.com"
+          - "ntp2.example.com"
+
